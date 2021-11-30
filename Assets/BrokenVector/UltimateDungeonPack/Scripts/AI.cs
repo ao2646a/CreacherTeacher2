@@ -38,7 +38,7 @@ public class AI : MonoBehaviour
         state = AIState.Roaming;
     }
 
-    public void CHnageToRoaming()
+    public void ChangeToRoaming()
     {
         state = AIState.Roaming;
     }
