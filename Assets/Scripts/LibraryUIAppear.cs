@@ -18,6 +18,7 @@ public class LibraryUIAppear : MonoBehaviour
         {
             RawImagePotion.enabled = true;
         }
+
     }
 
 
