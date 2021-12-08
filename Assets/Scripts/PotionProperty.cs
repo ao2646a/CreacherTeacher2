@@ -4,55 +4,39 @@ using UnityEngine;
 
 public class PotionProperty : MonoBehaviour
 {
-    [SerializeField] Color c;
-
-    Renderer r;
-
-    ColorManager cm;
+    [SerializeField] public Color c;
+    [SerializeField] public bool potionFull;
     
 
+    Renderer r;
+    ColorManager cm;
+    
     // Start is called before the first frame update
     void Start()
     {
+        //setting the renderer to control color of liquid
+        r = transform.GetChild(0).gameObject.GetComponent<Renderer>();
         //setting color of object
-        cm = GameObject.Find("TestScreen").GetComponent<ColorManager>();
-        r = GetComponent<Renderer>();
-        r.material.color = c;
+        if (potionFull)
+        {
+            r.enabled = true;
+            r.material.color = c;
+        }
+        else {
+            r.enabled = false;
+        } 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //once selected, +1, when 2 selected, update color of test screen.
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hitInfo = new RaycastHit();
-            bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
-            if (hit)
-            {
-                Debug.Log("Hit " + hitInfo.transform.gameObject.name);
-                if (hitInfo.transform.gameObject.tag == "Potion")
-                {
-                    if (cm.index == 0)
-                    {
-                        cm.index = 1;
-                        cm.a = c;
-                    }
-                    else {
-                        cm.index = 0;
-                        //ColorManager.b = c;
+    public void EmptyPotion() {
+        potionFull = false;
+        r.enabled = false;
+    }
 
-                        Renderer testRenderer = GameObject.Find("TestScreen").GetComponent<Renderer>();
-                        Color result = cm.Mix(cm.a, c);
-                        Debug.Log("result in potion:" + result);
-                        testRenderer.material.color = result;
-                    }
-                }
-            }
-        }
-
-
-        
+    public void FillPotion(Color pColor) {
+        c = pColor;
+        potionFull = true;
+        r.enabled = true;
+        r.material.color = c;
     }
 
 }
