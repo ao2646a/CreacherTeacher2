@@ -214,8 +214,32 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1471103299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1556607178237522159, guid: a8717113a04bc48b38589044d259db73, type: 3}
+  m_PrefabInstance: {fileID: 7266153150765577915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1471103301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471103299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc776a9540d948e88d87d57c1527765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePotion:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 1, a: 0}
+  - {r: 1, g: 1, b: 0, a: 0}
+  - {r: 0, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0, b: 1, a: 0}
+  - {r: 1, g: 0.6509804, b: 0, a: 0}
 --- !u!1 &1880586556
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +332,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9218377935294762359, guid: 1e711044cbc639d44aa004669771969e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9218377935294762359, guid: 1e711044cbc639d44aa004669771969e, type: 3}
       propertyPath: m_LocalScale.x
@@ -432,7 +456,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7266153150765577915
 PrefabInstance:
@@ -443,7 +467,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1798495649645318119, guid: a8717113a04bc48b38589044d259db73, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1798495649645318119, guid: a8717113a04bc48b38589044d259db73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,6 +512,10 @@ PrefabInstance:
     - target: {fileID: 1798495649645614023, guid: a8717113a04bc48b38589044d259db73, type: 3}
       propertyPath: m_Name
       value: Flask
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798495649645614023, guid: a8717113a04bc48b38589044d259db73, type: 3}
+      propertyPath: m_TagString
+      value: Potion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8717113a04bc48b38589044d259db73, type: 3}
