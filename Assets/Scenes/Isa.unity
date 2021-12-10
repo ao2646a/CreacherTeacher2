@@ -742,6 +742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5267186307015922318, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
+      propertyPath: m_TagString
+      value: PotionCompare
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
 --- !u!1001 &262109563
