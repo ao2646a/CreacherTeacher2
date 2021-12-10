@@ -26,9 +26,12 @@ public class MainPotionController : MonoBehaviour
 
     public void ColorComparer(GameObject comparisonPotion)
     {
-        if (comparisonPotion.GetComponent<Renderer>().material.color == transform.gameObject.GetComponent<Renderer>().material.color)
+        if (comparisonPotion.tag == "PotionCompare")
         {
-            colorIndex++;
+            if (comparisonPotion.GetComponent<PotionProperty>().c == transform.gameObject.GetComponent<Renderer>().material.color)
+            {
+                colorIndex++;
+            }
         }
     }
 
@@ -39,6 +42,6 @@ public class MainPotionController : MonoBehaviour
      * yellow: 255, 255, 0
      * green: 0, 255, 0
      * purple: 255, 0, 255
-     * orange: 255, 166, 0
+     * orange: 255, 165, 0
      * */
 }
