@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionController : MonoBehaviour
+public class MainPotionController : MonoBehaviour
 {
     [SerializeField] public Color[] basePotion = new Color[6];
     public static int colorIndex;
@@ -24,7 +24,7 @@ public class PotionController : MonoBehaviour
         //if tagged with potion
     }
 
-    public void ColorComparer( GameObject comparisonPotion)
+    public void ColorComparer(GameObject comparisonPotion)
     {
         if (comparisonPotion.GetComponent<Renderer>().material.color == transform.gameObject.GetComponent<Renderer>().material.color)
         {
