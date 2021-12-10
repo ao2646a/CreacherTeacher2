@@ -26,6 +26,9 @@ public class FPControl : MonoBehaviour
     [SerializeField] GameObject mixingPot;
     PotManager pm;
 
+    [SerializeField] GameObject mainPotionLiquid;
+    MainPotionController mpc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,9 @@ public class FPControl : MonoBehaviour
 
         //grabbing the pot manager script reference
         pm = mixingPot.GetComponent<PotManager>();
+
+        // grabbing the main potion controller script reference
+        mpc = mainPotionLiquid.GetComponent<MainPotionController>();
 
     }
 
@@ -106,7 +112,7 @@ public class FPControl : MonoBehaviour
                         p = hitInfo.transform.gameObject.GetComponent<PotionProperty>();
 
                         currentPotion.transform.SetParent(container.transform);
-                        currentPotion.transform.localPosition = new Vector3(.75f,-0.75f, 0.0f); ;
+                        currentPotion.transform.localPosition = new Vector3(.75f, -0.75f, 0.0f); ;
                         currentPotion.transform.localRotation = Quaternion.Euler(Vector3.zero);
                         currentPotion.transform.localScale = Vector3.one;
 
@@ -161,12 +167,19 @@ public class FPControl : MonoBehaviour
                 {
                     pm.Mix();
                 }
+                else if (hitInfo.transform.gameObject.tag == "CompareButton") {
+                    if (hasPotion) {
+                        // insert call compare method code here
+                        mpc.ColorComparer(currentPotion);
+                    }
+                }
                 else //if holding potion, drop potion. 
                 {
-                    if (hasPotion) {
+                    if (hasPotion)
+                    {
                         hasPotion = false;
                         currentPotion.transform.SetParent(null);
-                        
+
                     }
                 }
             }

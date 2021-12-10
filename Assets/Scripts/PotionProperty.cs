@@ -6,7 +6,8 @@ public class PotionProperty : MonoBehaviour
 {
     [SerializeField] public Color c;
     [SerializeField] public bool potionFull;
-    
+    [SerializeField] public bool originalPotion; // whether this potion is one of the 3 original potions
+
     Renderer r;
     
     // Start is called before the first frame update

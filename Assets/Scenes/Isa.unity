@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5279846457461932001, guid: 7e2b134344aa7c0449b99d1a47be113a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5279846457461932001, guid: 7e2b134344aa7c0449b99d1a47be113a, type: 3}
       propertyPath: m_LocalScale.y
@@ -430,7 +430,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.4, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: -25.562, y: 0, z: 0}
 --- !u!1 &142583270
 GameObject:
@@ -590,7 +590,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -642,7 +642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922318, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_TagString
-      value: PotionCompare
+      value: Potion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
@@ -1225,7 +1225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1821300323072192296, guid: 2b5f6b76f1ed47f4f8bc90c9aff3184b, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1821300323072192296, guid: 2b5f6b76f1ed47f4f8bc90c9aff3184b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1985,7 +1985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1821300323072192296, guid: 2b5f6b76f1ed47f4f8bc90c9aff3184b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1821300323072192296, guid: 2b5f6b76f1ed47f4f8bc90c9aff3184b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2469,7 +2469,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2522,6 +2522,10 @@ PrefabInstance:
     - target: {fileID: 5267186307015922317, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: c.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267186307015922317, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
+      propertyPath: originalPotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922318, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_Name
@@ -2677,7 +2681,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2729,6 +2733,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922317, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: c.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267186307015922317, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
+      propertyPath: originalPotion
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922318, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
@@ -3230,7 +3238,7 @@ Transform:
   - {fileID: 916486625}
   - {fileID: 1526411374}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1415106413
 MonoBehaviour:
@@ -4091,7 +4099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266949716707585787, guid: 34534f9a2d6df1c4f8dee201f8d50aaa, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8266949716707585787, guid: 34534f9a2d6df1c4f8dee201f8d50aaa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4256,6 +4264,7 @@ MonoBehaviour:
   cursorTexture: {fileID: 2800000, guid: 0b2446046421fd34ba4a926341afa752, type: 3}
   container: {fileID: 1448194041}
   mixingPot: {fileID: 1415106411}
+  mainPotionLiquid: {fileID: 1058072174}
 --- !u!143 &2066165696
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4364,7 +4373,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2470529085381542805, guid: a9c55b2fac05ba248a24bd117da7b964, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2470529085381542805, guid: a9c55b2fac05ba248a24bd117da7b964, type: 3}
       propertyPath: m_LocalScale.x
@@ -4722,7 +4731,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4763,6 +4772,10 @@ PrefabInstance:
     - target: {fileID: 5267186307015922316, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267186307015922317, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
+      propertyPath: originalPotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5267186307015922318, guid: 95b62b5438da4d245a16ff53d55979dc, type: 3}
       propertyPath: m_Name

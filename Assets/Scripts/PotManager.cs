@@ -47,7 +47,7 @@ public class PotManager : MonoBehaviour
             Debug.Log("Mixing " + c[colorIndex]);
             result += c[colorIndex];
         }
-        result = result / (i + 1);
+        //result = result / (i + 1);
         for (int colorIndex = 0; colorIndex <= i; colorIndex++)
         {
             Debug.Log("updating..");

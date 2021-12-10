@@ -26,11 +26,13 @@ public class MainPotionController : MonoBehaviour
 
     public void ColorComparer(GameObject comparisonPotion)
     {
-        if (comparisonPotion.tag == "PotionCompare")
+        PotionProperty pp = comparisonPotion.GetComponent<PotionProperty>();
+        if (!pp.originalPotion)
         {
-            if (comparisonPotion.GetComponent<PotionProperty>().c == transform.gameObject.GetComponent<Renderer>().material.color)
+            if (pp.c == transform.gameObject.GetComponent<Renderer>().material.color)
             {
                 colorIndex++;
+                r.material.color = basePotion[colorIndex];
             }
         }
     }
