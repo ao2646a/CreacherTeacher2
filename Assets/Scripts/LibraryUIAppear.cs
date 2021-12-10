@@ -5,26 +5,34 @@ using UnityEngine.UI;
 
 public class LibraryUIAppear : MonoBehaviour
 {
-    [SerializeField] RawImage RawImagePotion;
+    //[SerializeField] RawImage RawImagePotion;
+    [SerializeField] RawImage [] rI = new RawImage [8]; 
+
+    public int i = 0;
+    public int j = 0;
 
     private void Start()
     {
-        RawImagePotion.enabled = false;
+        for (i = 0; i < 8; i++)
+        {
+            rI[i].enabled = false;
+        }
     }
 
     void Update()
     {
         if (Input.GetKeyDown("space"))
-        {
-            RawImagePotion.enabled = true;
+            if (j < 8) {
+                rI[j].enabled = true;
+                j++;
+            }
+            
+                
         }
 
     }
 
 
-
-
-}
 
 
 
