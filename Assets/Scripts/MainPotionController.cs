@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionController : MonoBehaviour
+public class MainPotionController : MonoBehaviour
 {
     [SerializeField] public Color[] basePotion = new Color[6];
     public static int colorIndex;
@@ -24,11 +24,14 @@ public class PotionController : MonoBehaviour
         //if tagged with potion
     }
 
-    public void ColorComparer( GameObject comparisonPotion)
+    public void ColorComparer(GameObject comparisonPotion)
     {
-        if (comparisonPotion.GetComponent<Renderer>().material.color == transform.gameObject.GetComponent<Renderer>().material.color)
+        if (comparisonPotion.tag == "PotionCompare")
         {
-            colorIndex++;
+            if (comparisonPotion.GetComponent<PotionProperty>().c == transform.gameObject.GetComponent<Renderer>().material.color)
+            {
+                colorIndex++;
+            }
         }
     }
 
@@ -39,6 +42,6 @@ public class PotionController : MonoBehaviour
      * yellow: 255, 255, 0
      * green: 0, 255, 0
      * purple: 255, 0, 255
-     * orange: 255, 166, 0
+     * orange: 255, 165, 0
      * */
 }
