@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class LibraryUIAppear : MonoBehaviour
 {
     //[SerializeField] RawImage RawImagePotion;
-    [SerializeField] RawImage [] rI = new RawImage [8]; 
+    [SerializeField] RawImage [] rI = new RawImage [6]; 
 
     public int i = 0;
     public int j = 0;
 
     private void Start()
     {
-        for (i = 0; i < 8; i++)
+        for (i = 0; i < 6; i++)
         {
             rI[i].enabled = false;
         }
@@ -22,7 +22,7 @@ public class LibraryUIAppear : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("space"))
-            if (j < 8) {
+            if (j < 6) {
                 rI[j].enabled = true;
                 j++;
             }
