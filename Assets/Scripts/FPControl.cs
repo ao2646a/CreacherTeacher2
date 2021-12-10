@@ -9,7 +9,7 @@ public class FPControl : MonoBehaviour
     [SerializeField] float walkSpeed = 5f;
 
     [SerializeField] bool cursorLocked = true;
-
+    [SerializeField] Texture2D cursorTexture;
 
     bool hasPotion = false; // boolean used to determine whether player is holding a potion 
     [SerializeField] GameObject container;
@@ -36,7 +36,8 @@ public class FPControl : MonoBehaviour
         if (cursorLocked)
         {
             Cursor.lockState = CursorLockMode.Locked;
-            //Cursor.visible = false;
+            Cursor.visible = true;
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
         }
 
         //grabbing the pot manager script reference

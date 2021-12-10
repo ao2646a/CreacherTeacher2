@@ -7,9 +7,7 @@ public class PotionProperty : MonoBehaviour
     [SerializeField] public Color c;
     [SerializeField] public bool potionFull;
     
-
     Renderer r;
-    ColorManager cm;
     
     // Start is called before the first frame update
     void Start()
