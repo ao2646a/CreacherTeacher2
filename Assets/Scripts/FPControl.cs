@@ -12,6 +12,7 @@ public class FPControl : MonoBehaviour
     [SerializeField] Texture2D cursorTexture;
 
     bool hasPotion = false; // boolean used to determine whether player is holding a potion 
+    bool hasPot = false; // boolean used to determine whether player is holding the pot
     [SerializeField] GameObject container;
     GameObject currentPotion;
 
@@ -104,7 +105,7 @@ public class FPControl : MonoBehaviour
                 {
                     // if already holding a potion, do nothing
                     // if hands empty, grab potion
-                    if (!hasPotion)
+                    if (!hasPotion && !hasPot)
                     {
                         //code to grab potion
                         currentPotion = hitInfo.transform.gameObject;
@@ -124,7 +125,15 @@ public class FPControl : MonoBehaviour
                 else if (hitInfo.transform.gameObject.tag == "Pot")
                 {
                     Debug.Log("You've hit the pot");
-                    // if hands empty, do nothing
+                    // if hands empty, pick up pot.
+                    if (!hasPotion && !hasPot) {
+                        hasPot = true;
+                        Debug.Log("Making the pot part of the player");
+                        mixingPot.transform.SetParent(container.transform);
+                        mixingPot.transform.localPosition = new Vector3(.75f, -0.75f, 0.0f); ;
+                        mixingPot.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                        mixingPot.transform.localScale = Vector3.one;
+                    }
                     // if holding potion
                     if (hasPotion)
                     {
@@ -173,13 +182,28 @@ public class FPControl : MonoBehaviour
                         mpc.ColorComparer(currentPotion);
                     }
                 }
-                else //if holding potion, drop potion. 
+                else if (hitInfo.transform.gameObject.tag == "Trash") {
+                    if (hasPotion)
+                    {
+                        p.EmptyPotion();
+                    }
+                    else if (hasPot) {
+                        pm.EmptyPot();
+                    }
+                }
+                else //if holding potion, drop potion. if holding pot, drop pot
                 {
                     if (hasPotion)
                     {
+                        currentPotion.GetComponent<PotionControl>().Snapback();
                         hasPotion = false;
                         currentPotion.transform.SetParent(null);
 
+                    }
+                    else if (hasPot) {
+                        hasPot = false;
+                        pm.Snapback();
+                        mixingPot.transform.SetParent(null);
                     }
                 }
             }

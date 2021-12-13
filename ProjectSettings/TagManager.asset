@@ -7,8 +7,8 @@ TagManager:
   - Potion
   - Pot
   - MixingStick
-  - PotionCompare
   - CompareButton
+  - Trash
   layers:
   - Default
   - TransparentFX

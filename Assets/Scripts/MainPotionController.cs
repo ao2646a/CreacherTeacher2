@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MainPotionController : MonoBehaviour
 {
-    [SerializeField] public Color[] basePotion = new Color[6];
-    public static int colorIndex;
+    public static int colorIndex = 6;
+
+    [SerializeField] public Color[] basePotion = new Color[colorIndex];
+    public int currentIndex;
 
     Renderer r;
+    [SerializeField] LibraryUIAppear lua; // the library UI appear - used to control achievement spell book
 
     // Start is called before the first frame update
     void Start()
@@ -15,9 +18,11 @@ public class MainPotionController : MonoBehaviour
         //setting the renderer to control color of liquid
         r = transform.gameObject.GetComponent<Renderer>();
 
+        currentIndex = 0;
+
         //setting color of object
         r.enabled = true;
-        r.material.color = basePotion[colorIndex];
+        r.material.color = basePotion[currentIndex];
 
 
         //if object is placed on gold circle comapre with origina and call color comparator
@@ -29,10 +34,11 @@ public class MainPotionController : MonoBehaviour
         PotionProperty pp = comparisonPotion.GetComponent<PotionProperty>();
         if (!pp.originalPotion)
         {
-            if (pp.c == transform.gameObject.GetComponent<Renderer>().material.color)
+            if (pp.c == basePotion[currentIndex])
             {
-                colorIndex++;
-                r.material.color = basePotion[colorIndex];
+                currentIndex++;
+                r.material.color = basePotion[currentIndex];
+                lua.NewPotionVisible();
             }
         }
     }

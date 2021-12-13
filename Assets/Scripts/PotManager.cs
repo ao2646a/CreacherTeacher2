@@ -14,9 +14,12 @@ public class PotManager : MonoBehaviour
 
     bool mixed = false;
 
+    Vector3 position;
+
     // Start is called before the first frame update
     void Start()
     {
+        position = transform.position;
         r[0].enabled = false;
         r[1].enabled = false;
         r[2].enabled = false;
@@ -71,5 +74,19 @@ public class PotManager : MonoBehaviour
             potFull = false;
             potEmpty = false;
         }
+    }
+
+    public void EmptyPot() {
+        Debug.Log("emptying pot..");
+        r[0].enabled = false;
+        r[1].enabled = false;
+        r[2].enabled = false;
+        r[3].enabled = false;
+        UpdateStatus();
+        i = 0;
+    }
+
+    public void Snapback() {
+        transform.position = position;
     }
 }
