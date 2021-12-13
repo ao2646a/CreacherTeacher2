@@ -10,6 +10,7 @@ public class LibraryUIAppear : MonoBehaviour
 
     public int i = 0;
     public int j = 0;
+    private int counter = MainPotionController.colorIndex;
 
     private void Start()
     {
@@ -19,18 +20,21 @@ public class LibraryUIAppear : MonoBehaviour
         }
     }
 
-    void Update()
+    public void Update()
     {
-        if (Input.GetKeyDown("space"))
+
+        if (counter < MainPotionController.colorIndex)
             if (j < 6) {
-                rI[j].enabled = true;
-                j++;
+                rI[counter].enabled = true;
+                counter++;
             }
             
                 
-        }
+     }
 
     }
+
+
 
 
 
