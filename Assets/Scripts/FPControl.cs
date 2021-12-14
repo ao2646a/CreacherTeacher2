@@ -16,10 +16,10 @@ public class FPControl : MonoBehaviour
     Vector3 gravity = Vector3.down;
     bool isGrounded = true;
 
-    bool hasPotion = false; // boolean used to determine whether player is holding a potion 
+    public bool hasPotion = false; // boolean used to determine whether player is holding a potion 
     //bool hasPot = false; // boolean used to determine whether player is holding the pot
     [SerializeField] GameObject container;
-    GameObject currentPotion;
+    public GameObject currentPotion;
 
     float cameraPitch = 0.0f;
     UnityEngine.CharacterController controller = null;
@@ -151,15 +151,6 @@ public class FPControl : MonoBehaviour
                 else if (hitInfo.transform.gameObject.tag == "Pot")
                 {
                     Debug.Log("You've hit the pot");
-                    // if hands empty, pick up pot.
-                   /* if (!hasPotion){// && !hasPot) {
-                        hasPot = true;
-                        Debug.Log("Making the pot part of the player");
-                        mixingPot.transform.SetParent(container.transform);
-                        mixingPot.transform.localPosition = new Vector3(.75f, -0.75f, 0.0f); ;
-                        mixingPot.transform.localRotation = Quaternion.Euler(Vector3.zero);
-                        mixingPot.transform.localScale = Vector3.one;
-                    }*/
                     // if holding potion
                     if (hasPotion)
                     {

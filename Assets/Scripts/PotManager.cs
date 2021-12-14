@@ -8,11 +8,11 @@ public class PotManager : MonoBehaviour
     public bool potEmpty = true;
 
     [SerializeField] Renderer[] r = new Renderer[4];
-    int i = 0; //current index of layer (0 to 3)
+    public int i = 0; //current index of layer (0 to 3)
 
-    Color[] c = new Color[4];
+    public Color[] c = new Color[4];
 
-    bool mixed = false;
+    public bool mixed = false;
 
     Vector3 position;
 
