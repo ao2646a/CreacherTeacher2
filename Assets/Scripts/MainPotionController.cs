@@ -36,9 +36,12 @@ public class MainPotionController : MonoBehaviour
         {
             if (pp.c == basePotion[currentIndex])
             {
-                currentIndex++;
-                r.material.color = basePotion[currentIndex];
                 lua.NewPotionVisible();
+                if (currentIndex < colorIndex-1)
+                {
+                    currentIndex++;
+                    r.material.color = basePotion[currentIndex];
+                }
             }
         }
     }
@@ -50,6 +53,6 @@ public class MainPotionController : MonoBehaviour
      * yellow: 255, 255, 0
      * green: 0, 255, 0
      * purple: 255, 0, 255
-     * orange: 255, 165, 0
+     * cyan: 255, 255, 0
      * */
 }

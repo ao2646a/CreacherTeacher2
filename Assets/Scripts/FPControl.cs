@@ -11,8 +11,13 @@ public class FPControl : MonoBehaviour
     [SerializeField] bool cursorLocked = true;
     [SerializeField] Texture2D cursorTexture;
 
+    [SerializeField] LayerMask PlayerLayerMask;
+
+    Vector3 gravity = Vector3.down;
+    bool isGrounded = true;
+
     bool hasPotion = false; // boolean used to determine whether player is holding a potion 
-    bool hasPot = false; // boolean used to determine whether player is holding the pot
+    //bool hasPot = false; // boolean used to determine whether player is holding the pot
     [SerializeField] GameObject container;
     GameObject currentPotion;
 
@@ -58,6 +63,27 @@ public class FPControl : MonoBehaviour
         updateMouseLook();
         updatePlayerMovement();
         updateClick();
+        // exert down force as gravity
+        Gravity();
+    }
+
+    void Gravity() {
+
+        RaycastHit hitInfo;// = new RaycastHit();
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //bool hit = 
+
+        if (Physics.Raycast(transform.position, Vector3.down, 0.1f))
+        {
+            isGrounded = true;
+        }
+        else {
+            isGrounded = false;
+        }
+        
+        if (!isGrounded) {
+            transform.position += gravity*0.1f;
+        }
     }
 
     void updateMouseLook()
@@ -94,7 +120,7 @@ public class FPControl : MonoBehaviour
 
             RaycastHit hitInfo;// = new RaycastHit();
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            bool hit = Physics.Raycast(ray, out hitInfo, 100.0f);
+            bool hit = Physics.Raycast(ray, out hitInfo, 100.0f, PlayerLayerMask);
 
             if (hit)
             {
@@ -105,7 +131,7 @@ public class FPControl : MonoBehaviour
                 {
                     // if already holding a potion, do nothing
                     // if hands empty, grab potion
-                    if (!hasPotion && !hasPot)
+                    if (!hasPotion) // && !hasPot)
                     {
                         //code to grab potion
                         currentPotion = hitInfo.transform.gameObject;
@@ -126,14 +152,14 @@ public class FPControl : MonoBehaviour
                 {
                     Debug.Log("You've hit the pot");
                     // if hands empty, pick up pot.
-                    if (!hasPotion && !hasPot) {
+                   /* if (!hasPotion){// && !hasPot) {
                         hasPot = true;
                         Debug.Log("Making the pot part of the player");
                         mixingPot.transform.SetParent(container.transform);
                         mixingPot.transform.localPosition = new Vector3(.75f, -0.75f, 0.0f); ;
                         mixingPot.transform.localRotation = Quaternion.Euler(Vector3.zero);
                         mixingPot.transform.localScale = Vector3.one;
-                    }
+                    }*/
                     // if holding potion
                     if (hasPotion)
                     {
@@ -187,9 +213,9 @@ public class FPControl : MonoBehaviour
                     {
                         p.EmptyPotion();
                     }
-                    else if (hasPot) {
+                    /*else if (hasPot) {
                         pm.EmptyPot();
-                    }
+                    }*/
                 }
                 else //if holding potion, drop potion. if holding pot, drop pot
                 {
@@ -200,11 +226,11 @@ public class FPControl : MonoBehaviour
                         currentPotion.transform.SetParent(null);
 
                     }
-                    else if (hasPot) {
+                  /*  else if (hasPot) {
                         hasPot = false;
                         pm.Snapback();
                         mixingPot.transform.SetParent(null);
-                    }
+                    }*/
                 }
             }
         }

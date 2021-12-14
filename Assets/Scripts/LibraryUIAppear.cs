@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LibraryUIAppear : MonoBehaviour
 {
-
     private int counterMax = MainPotionController.colorIndex;
 
     //[SerializeField] RawImage RawImagePotion;
@@ -28,13 +27,12 @@ public class LibraryUIAppear : MonoBehaviour
     }
 
     public void NewPotionVisible(){
-        if (j < counterMax)
+        if (j < counterMax-1)
         {
             rI[j].enabled = true;
             j++;
             Debug.Log("hit" + j);
-        }
-        else if (j == counterMax)
+        } else if (j == counterMax-1)
         {
             Debug.Log(j);
             SceneManager.LoadScene("Celebration");

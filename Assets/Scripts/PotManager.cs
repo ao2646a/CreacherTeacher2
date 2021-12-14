@@ -32,6 +32,7 @@ public class PotManager : MonoBehaviour
         r[i].material.color = c[i];
         r[i].enabled = true;
         i++;
+        mixed = false;
         UpdateStatus();
     }
 
@@ -39,23 +40,29 @@ public class PotManager : MonoBehaviour
         i--;
         Color pColor = c[i];
         r[i].enabled = false;
+        //c[i] = null;
         UpdateStatus();
         return pColor;
     }
 
     public void Mix() {
-        Debug.Log("Mixing colors..");
-        Color result = new Color(0, 0, 0, 0);
-        for (int colorIndex = 0; colorIndex <= i; colorIndex++) {
-            Debug.Log("Mixing " + c[colorIndex]);
-            result += c[colorIndex];
-        }
-        //result = result / (i + 1);
-        for (int colorIndex = 0; colorIndex <= i; colorIndex++)
+        if (!mixed)
         {
-            Debug.Log("updating..");
-            c[colorIndex] = result;
-            r[colorIndex].material.color = result;
+            Debug.Log("Mixing colors..");
+            Color result = new Color(0, 0, 0, 0);
+            for (int colorIndex = 0; colorIndex < i; colorIndex++)
+            {
+                Debug.Log("Mixing " + c[colorIndex]);
+                result += c[colorIndex];
+            }
+            //result = result / (i + 1);
+            for (int colorIndex = 0; colorIndex < i; colorIndex++)
+            {
+                Debug.Log("updating..");
+                c[colorIndex] = result;
+                r[colorIndex].material.color = result;
+            }
+            mixed = true;
         }
     }
 
@@ -76,7 +83,7 @@ public class PotManager : MonoBehaviour
         }
     }
 
-    public void EmptyPot() {
+  /*  public void EmptyPot() {
         Debug.Log("emptying pot..");
         r[0].enabled = false;
         r[1].enabled = false;
@@ -84,9 +91,7 @@ public class PotManager : MonoBehaviour
         r[3].enabled = false;
         UpdateStatus();
         i = 0;
-    }
+    }*/
 
-    public void Snapback() {
-        transform.position = position;
-    }
+
 }
