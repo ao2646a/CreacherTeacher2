@@ -103,9 +103,7 @@ public class TutorialManager : MonoBehaviour
             {
                 compared = true;
                 text.text = "Yaaaay! We did it!\n" +
-                    "Click the red trash can and empty our bottle, so we can\n" +
-                    "be prepared for our next quest displayed in the bottle next \n" +
-                    "to the golden plate!";
+                    "Click the red trash can and empty our bottle, so we can be prepared for our next quest displayed in the bottle next to the golden plate!";
             }
         }
         else if (emptyPotionClicked)
@@ -115,8 +113,8 @@ public class TutorialManager : MonoBehaviour
             if (pm.potEmpty && fpc.hasPotion && fpc.currentPotion.transform.GetChild(1).gameObject == emptyPotion)
             {
                 emptyPotionFilled = true;
-                text.text = "We have our potion! Now put the potion onto the \n" +
-                    "golden plate to test whether it is the color we want.";
+                text.text = "We have our potion!\n" +
+                    "Now put the potion onto the golden plate to test whether it is the color we want.";
             }
         }
         else if (potFilled)
@@ -136,8 +134,8 @@ public class TutorialManager : MonoBehaviour
             if (!pm.potEmpty)
             {
                 potFilled = true;
-                text.text = "Since our designated potion color is red,\n " +
-                    "and the potion in pot is already red, we can simply scoop \n" +
+                text.text = "Since our designated potion color is red, and the potion " +
+                    "in pot is already red, we can simply scoop " +
                     "it out with an empty bottle. Grab the empty bottle!\n" +
                     "(But don't forget to put down your current potion first)";
             }
