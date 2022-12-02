@@ -40,6 +40,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] PotManager pm;
     [SerializeField] FPControl fpc;
 
+    public UnityEngine.UI.Text text;
+
     void Start() {
         redPotionr = redPotion.GetComponent<Renderer>();
         emptyPotionr = emptyPotion.GetComponent<Renderer>();
@@ -54,6 +56,8 @@ public class TutorialManager : MonoBehaviour
         mixingStickc = mixingStickr.material.color;
         comparePlatec = comparePlater.material.color;
         trashc = trashr.material.color;
+        text.enabled = true;
+        text.text = "Reproduce the potion next to the golden plate! \n Start by grabbing the potion in red.";
     }
 
     void Update() {
@@ -63,11 +67,15 @@ public class TutorialManager : MonoBehaviour
         }
         else if (!partTwoDone)
         {
-            TutorialPartTwo();
+            if (Input.GetMouseButtonDown(0)) {
+                text.enabled = false;
+            }
+                TutorialPartTwo();
         }
         else {
             GetComponent<TutorialManager>().enabled = false; //  tutorial done
         }
+
 
 
         
@@ -81,7 +89,11 @@ public class TutorialManager : MonoBehaviour
             if ((fpc.currentPotion.transform.GetChild(1).gameObject == emptyPotion)&&(!fpc.currentPotion.GetComponent<PotionProperty>().potionFull)) 
             {
                     trashr.material.color = trashc;
-                    partOneDone = true; }
+                    partOneDone = true;
+                    text.text = "You did it! Now, keep going and learn all about \n" +
+                    "color mixing! Remember, some quest might involve some potion mixing.";
+
+            }
         }
         else if (emptyPotionFilled)
         {
@@ -90,6 +102,10 @@ public class TutorialManager : MonoBehaviour
             if (mpc.currentIndex == 1)
             {
                 compared = true;
+                text.text = "Yaaaay! We did it!\n" +
+                    "Click the red trash can and empty our bottle, so we can\n" +
+                    "be prepared for our next quest displayed in the bottle next \n" +
+                    "to the golden plate!";
             }
         }
         else if (emptyPotionClicked)
@@ -99,6 +115,8 @@ public class TutorialManager : MonoBehaviour
             if (pm.potEmpty && fpc.hasPotion && fpc.currentPotion.transform.GetChild(1).gameObject == emptyPotion)
             {
                 emptyPotionFilled = true;
+                text.text = "We have our potion! Now put the potion onto the \n" +
+                    "golden plate to test whether it is the color we want.";
             }
         }
         else if (potFilled)
@@ -108,6 +126,7 @@ public class TutorialManager : MonoBehaviour
             if (fpc.hasPotion && fpc.currentPotion.transform.GetChild(1).gameObject == emptyPotion)
             {
                 emptyPotionClicked = true;
+                text.text = "Nicely done! Now let's scoop the potion from the pot!";
             }
         }
         else if (redPotionClicked)
@@ -117,6 +136,10 @@ public class TutorialManager : MonoBehaviour
             if (!pm.potEmpty)
             {
                 potFilled = true;
+                text.text = "Since our designated potion color is red,\n " +
+                    "and the potion in pot is already red, we can simply scoop \n" +
+                    "it out with an empty bottle. Grab the empty bottle!\n" +
+                    "(But don't forget to put down your current potion first)";
             }
         }
         else
@@ -126,6 +149,7 @@ public class TutorialManager : MonoBehaviour
             if (fpc.hasPotion && fpc.currentPotion.transform.GetChild(1).gameObject == redPotion)
             {
                 redPotionClicked = true;
+                text.text = "Next, pour the potion into the mixing pot.";
             }
         }
 
@@ -137,12 +161,16 @@ public class TutorialManager : MonoBehaviour
         if (pm.i >= 2 && pm.mixed) {
             mixingStickr.material.color = mixingStickc;
             partTwoDone = true;
+            text.enabled = false;
         } else if (pm.i >= 2)
         {
             if (pm.c[0] != pm.c[2])
             {
                 mixingStickr.material.color = Color.red;
+                text.enabled = true;
+                text.text = "Let's click the mixing stick to mix up the colors!";
             }
         }
     }
+
 }
